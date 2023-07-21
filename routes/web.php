@@ -14,35 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+use App\Http\Controllers\MerakiController;
 
-Route::get('/', function () {
+Route::get('/', [MerakiController::class,'index']);
 
-    $arr=[10,20,30,40];
+Route::get('/produtos/create', [MerakiController::class,'create']);
 
-    $nome = "John";
-      
-    return view('welcome',
-    [   'nome' => $nome,
-        'arr' => $arr
-        
-    ]);
-});
-
-Route::get('/nomes', function(){
-
-    $nomes = ['John', 'Lane', 'Vitoria'];
-
-    return view('nomes', ['nomes' => $nomes]); 
-});
 
 Route::get('/produtos', function(){
 
-    $busca = request('search');
-
-    return view('produtos', ['busca'=> $busca]);
-});
-
-Route::get('/produtos_teste/{id?}', function($id=null){
-
-    return view('produtos', ['id' => $id]);
+    return view('produtos');
 });

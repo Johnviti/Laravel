@@ -19,18 +19,18 @@
     </head>
     <body>
         <header>
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <div class="collapse navbar-collpase" id="navbar">
-                    <a href="" class="navbar-brand">
-                        <img src="/img/logo.jfif" alt="logo">
+            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+              <div class="collapse navbar-collapse" id="navbar">
+                    <a href="/" class="navbar-brand">
+                        <img src="/img/logo.jfif" alt="Logo Meraki">
                     </a>
-                    <lu class="navbar-nav">
+                    <ul class="navbar-nav">
                         <li class="nav-item">
                             <a href="/" class="nav-link">Loja</a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="/" class="nav-link">Produtos</a>
+                            <a href="/produtos/create" class="nav-link">Produtos</a>
                         </li>
 
                         <li class="nav-item">
@@ -40,7 +40,7 @@
                         <li class="nav-item">
                             <a href="/" class="nav-link">cadastrar</a>
                         </li>
-                    </lu>
+                    </ul>
                 </div>
             </nav>
         </header>
@@ -49,5 +49,9 @@
          <footer>
             <p>MERAKI &copy; 2023</p>
          </footer>
+
+         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" > </script> 
+         <script nomodule  src="https://unpkg .com/ionicons@7.1.0/dist/ionicons/ionicons.js" > </script>
     </body>
+
 </html>
