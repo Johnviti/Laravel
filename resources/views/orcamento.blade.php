@@ -20,7 +20,7 @@
                 <label for="title">Celular</label>
                 <input type="text" class="form-control" id="celular" name="celular" placeholder="(82)999999999">
             </div>
-            <input type="submit" class="btn btm-primary" value="Solicitar">
+            <input type="submit" class="btn btn-primary" value="Solicitar">
         </form>
     </div>
 

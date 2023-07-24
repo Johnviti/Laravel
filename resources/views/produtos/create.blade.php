@@ -7,9 +7,10 @@
     <div id="cadastro-create-container" class="col-md-6 offset-md-3">
         <h1>Solicite um orçamento</h1>
         <form action="/produtos" method="POST">
+            @csrf
             <div class="form-group">
                 <label for="title">Nome completo</label>
-                <input type="text" class="form-control" id="title" name="title" placeholder="Nome completo">
+                <input type="text" class="form-control" id="name" name="name" placeholder="Nome completo..">
             </div>
             <div class="form-group">
                 <label for="title">Email</label>

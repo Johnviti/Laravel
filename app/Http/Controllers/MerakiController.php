@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Models\cliente;
 
 use App\Models\Products;
-use Symfony\Component\HttpKernel\Event\RequestEvent;
 
 
 class MerakiController extends Controller
@@ -15,9 +14,9 @@ class MerakiController extends Controller
     
     public function index(){
 
-        $products= Products::all();
+        $clientes= cliente::all();
           
-        return view('welcome',['products' => $products]);
+        return view('welcome',['clientes' => $clientes]);
 
     }
 
@@ -32,7 +31,7 @@ class MerakiController extends Controller
     }
 
     public function store(Request $request){
-
+        
 
         $cliente= new cliente;
         $cliente->name = $request ->name;
@@ -41,7 +40,7 @@ class MerakiController extends Controller
 
         $cliente->save();
 
-        return redirect('/');
+        return redirect('/')->with('msg', 'Evento criado com sucesso!');
 
     }
 

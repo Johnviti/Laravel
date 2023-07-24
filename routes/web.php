@@ -17,14 +17,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MerakiController;
 
 Route::get('/', [MerakiController::class,'index']);
-
 Route::get('/clientes', [MerakiController::class,'clientes']);
 
 Route::get('/produtos/create', [MerakiController::class,'create']);
 route::post('/produtos',[MerakiController::class,'store']);
 
-
-Route::get('/produtos', function(){
-
-    return view('produtos');
-});
+;

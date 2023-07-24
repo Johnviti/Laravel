@@ -17,12 +17,12 @@
     <h2>Produtos</h2>
     <p class="subtitle">Veja nossos produtos</p>
     <div id="cards-container" class="row">
-     @foreach ($products as $product)
+     @foreach ($clientes as $cliente)
         <div class="card col-md-3">
-            <img src="\img\product.png" alt="{{$product->title}}">
+            <img src="\img\product.png" alt="{{$cliente->name}}">
             <div class="card-body">
                 <p class="card-date">21/07/2023</p>
-                <h5 class="card-title">{{$product->title}}</h5>
+                <h5 class="card-title">{{$cliente->name}}</h5>
                 <a href="#" class="btn btn-primary">Saber mais</a>
             </div>
         </div>
