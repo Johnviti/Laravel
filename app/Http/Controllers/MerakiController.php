@@ -14,15 +14,27 @@ class MerakiController extends Controller
     
     public function index(){
 
-        $clientes= cliente::all();
+        $produtos= Products::all();
           
-        return view('welcome',['clientes' => $clientes]);
+        return view('welcome',['produtos' => $produtos]);
 
     }
 
+    public function adicionar(){
+
+        return view('produtos.produtos');
+    }
+    
     public function create(){
 
         return view('produtos.create');
+    }
+    
+    public function resgistrados(){
+       
+        $clientes= cliente::all();
+        
+        return view('produtos.clientes-registrados', ['clientes' => $clientes]);
     }
 
     public function clientes(){
@@ -40,7 +52,33 @@ class MerakiController extends Controller
 
         $cliente->save();
 
-        return redirect('/')->with('msg', 'Evento criado com sucesso!');
+        return redirect('/')->with('msg', 'orçamento criado com sucesso!');
+
+    }
+
+    public function storeproduct(Request $request){
+        
+
+        $produto= new Products;
+        $produto->name = $request ->name;
+        $produto->email = $request ->email;
+        $produto->celular = $request ->celular;
+
+        if ($request-> hasfile('image') && $request->file('image')->isValid()) {
+            
+            $requestImage = $request->image;
+            $extension = $requestImage->extension();
+
+            $imageName = md5( $requestImage->image->getClientOriginalName() . strtotime("now") . "." . $extension);
+
+            $requestImage->move(public_path('img/produtos'), $imageName);
+
+            $produto->image = $imageName;
+        }
+
+        $produto->save();
+
+        return redirect('/')->with('msg', 'orçamento criado com sucesso!');
 
     }
 

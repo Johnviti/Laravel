@@ -19,7 +19,11 @@ use App\Http\Controllers\MerakiController;
 Route::get('/', [MerakiController::class,'index']);
 Route::get('/clientes', [MerakiController::class,'clientes']);
 
-Route::get('/produtos/create', [MerakiController::class,'create']);
-route::post('/produtos',[MerakiController::class,'store']);
+Route::get('/clientes-resgistrados', [MerakiController::class,'resgistrados']);
+
+Route::get('/produtos/create', [MerakiController::class,'adicionar']);
+Route::get('/cliente/create', [MerakiController::class,'create']);
+route::post('/cliente',[MerakiController::class,'store']);
+route::post('/produtos',[MerakiController::class,'storeproduct']);
 
 ;

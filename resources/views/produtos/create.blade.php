@@ -6,7 +6,7 @@
 
     <div id="cadastro-create-container" class="col-md-6 offset-md-3">
         <h1>Solicite um orçamento</h1>
-        <form action="/produtos" method="POST">
+        <form action="/cliente" method="POST">
             @csrf
             <div class="form-group">
                 <label for="title">Nome completo</label>
