@@ -17,13 +17,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MerakiController;
 
 Route::get('/', [MerakiController::class,'index']);
-Route::get('/clientes', [MerakiController::class,'clientes']);
 
 Route::get('/clientes-resgistrados', [MerakiController::class,'resgistrados']);
-
-Route::get('/produtos/create', [MerakiController::class,'adicionar']);
 Route::get('/cliente/create', [MerakiController::class,'create']);
 route::post('/cliente',[MerakiController::class,'store']);
-route::post('/produtos',[MerakiController::class,'storeproduct']);
+
+
+Route::get('/produtos/create', [MerakiController::class,'adicionar']);
+Route::post('/produtos',[MerakiController::class,'storeproduct']);
+Route::get('/produtos/{id}', [MerakiController::class,'show']);
+
 
 ;

@@ -31,6 +31,21 @@
                 <label for="title">Descrição</label>
                 <textarea name="description" id="description" class="form-control" placeholder="descreva o produto?"></textarea>
             </div>
+            <div class="form-group">
+                <label for="title">Adicione as especificações do produto</label>
+                <div class="form-group">
+                    <input type="checkbox" name="items[]" value="Smart">Smart
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" name="items[]" value="Poliamida">Poliamida
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" name="items[]" value="Importado">Importado
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" name="items[]" value="Nacional">Nacional
+                </div>
+            </div>
             <input type="submit" class="btn btn-primary" value="adicionar produto">
         </form>
     </div>

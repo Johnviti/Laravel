@@ -20,7 +20,7 @@
     <body>
         <header>
             <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-              <div class="collapse navbar-collapse" id="navbar">
+              <div class="container-fluid" id="navbar">
                     <a href="/" class="navbar-brand">
                         <img src="/img/logo.jfif" alt="Logo Meraki">
                     </a>

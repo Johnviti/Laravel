@@ -52,7 +52,16 @@ header{
 .navbar-dark .navbar-nav .nav-link{
     color: #ffffff;
 }
+.nav-link:hover {
+    text-decoration: underline;
+    color: #ffffff;
+}
 
+.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
+    color: rgb(255, 255, 255);
+    font-weight: 300;
+    
+}
 * {
     font-family: 'Ubuntu', sans-serif;
 }
@@ -104,7 +113,7 @@ header{
 }
 
 #products-container img{
-    max-height: 200px;
+    max-height: 320px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
@@ -166,4 +175,48 @@ margin: 5px;
     margin-bottom: 0;
     text-align: center;
     padding: 10px;
+}
+
+/* página de produto */
+
+#image-container, #info-container{
+    margin-top: 30px;
+}
+
+#image-container img{
+    border-radius: 10px;
+}
+
+#info-container h1{
+    font-size: 36px;
+    font-weight: 900;
+}
+
+#info-container p{
+    margin: 0;
+    font-size: 14px;
+    display: flex;
+}
+
+#info-container h3, #description-container h3{
+    font-size: 20px;
+    font-weight: bold;
+}
+#info-container ion-icon{
+    font-size: 20px;
+    color: #3253e6;
+    margin-right: 5px;
+}
+
+#info-container #produto-submit{
+    margin: 20px 0;
+}
+
+#items-list{
+    list-style: nome;
+    padding-left: 0;
+}
+
+#items-list li{
+    display: flex;
 }

@@ -37,10 +37,6 @@ class MerakiController extends Controller
         return view('produtos.clientes-registrados', ['clientes' => $clientes]);
     }
 
-    public function clientes(){
-
-        return view('produtos.clientes-registrados');
-    }
 
     public function store(Request $request){
         
@@ -64,6 +60,8 @@ class MerakiController extends Controller
         $produto->qtd = $request ->qtd;
         $produto->description = $request ->description;
         $produto->categoria = $request ->categoria;
+        $produto->items = $request ->items;
+        var_dump($produto->items);
 
         if ($request-> hasfile('image') && $request->file('image')->isValid()) {
             
@@ -83,6 +81,13 @@ class MerakiController extends Controller
         return redirect('/')->with('msg', 'produto adicionado com sucesso!');
 
     }
+
+    public function show($id){
+
+        $produto= Products::findorFail($id);
+        return view('produtos.show', ['produto'=>$produto] );
+    }
+
 
 }
 

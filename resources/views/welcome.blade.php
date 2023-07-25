@@ -23,7 +23,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{$produto->name}}</h5>
                 <p class="card-qtd">{{$produto->qtd}} und</p>
-                <a href="#" class="btn btn-primary">Saber mais</a>
+                <a href="/produtos/{{$produto->id}}" class="btn btn-primary">Saber mais</a>
             </div>
         </div>
         
