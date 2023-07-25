@@ -15,7 +15,7 @@
                 <p class="card-date">21/07/2023</p>
                 <h5 class="card-title">{{$cliente->name}}</h5>
                 <h5 class="card-title">{{$cliente->email}}</h5>
-                <a href="#" class="btn btn-primary">Saber mais</a>
+                <a href="#" class="btn btn-primary">Enviar orcamento</a>
             </div>
         </div>
         

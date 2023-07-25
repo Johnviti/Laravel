@@ -19,10 +19,10 @@
     <div id="cards-container" class="row">
      @foreach ($produtos as $produto)
         <div class="card col-md-3">
-            <img src="\img\product.png" alt="{{$produto->name}}">
+            <img src="/img/produtos/{{ $produto->image }}"" alt="{{$produto->name}}">
             <div class="card-body">
-                <p class="card-date">21/07/2023</p>
                 <h5 class="card-title">{{$produto->name}}</h5>
+                <p class="card-qtd">{{$produto->qtd}} und</p>
                 <a href="#" class="btn btn-primary">Saber mais</a>
             </div>
         </div>

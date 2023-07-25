@@ -34,7 +34,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="/produtos/create" class="nav-link">Produtos</a>
+                            <a href="/produtos/create" class="nav-link">Adicionar produtos</a>
                         </li>
 
                         <li class="nav-item">

@@ -61,24 +61,26 @@ class MerakiController extends Controller
 
         $produto= new Products;
         $produto->name = $request ->name;
-        $produto->email = $request ->email;
-        $produto->celular = $request ->celular;
+        $produto->qtd = $request ->qtd;
+        $produto->description = $request ->description;
+        $produto->categoria = $request ->categoria;
 
         if ($request-> hasfile('image') && $request->file('image')->isValid()) {
             
             $requestImage = $request->image;
             $extension = $requestImage->extension();
 
-            $imageName = md5( $requestImage->image->getClientOriginalName() . strtotime("now") . "." . $extension);
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
 
             $requestImage->move(public_path('img/produtos'), $imageName);
 
             $produto->image = $imageName;
         }
+        
 
         $produto->save();
 
-        return redirect('/')->with('msg', 'orçamento criado com sucesso!');
+        return redirect('/')->with('msg', 'produto adicionado com sucesso!');
 
     }
 

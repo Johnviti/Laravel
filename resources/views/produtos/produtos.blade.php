@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('titulo', 'cliente')
+@section('titulo', 'Produtos')
 
 @section('content')
 
@@ -14,25 +14,24 @@
             </div>
 
             <div class="form-group">
-                <label for="title">Nome do produto</label>
-                <input type="text" class="form-control" id="title" name="title" placeholder="Nome completo">
+                <label for="title">Produto</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Camisa">
             </div>
 
             <div class="form-group">
                 <label for="title">Categoria</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="email@gmail.com">
+                <input type="text" class="form-control" id="categoria" name="categoria" placeholder="Roupa" >
             </div>
 
             <div class="form-group">
-                <label for="title">Quantidade</label>
-                <input type="text" class="form-control" id="celular" name="celular" placeholder="(82)999999999">
+                <label for="title">Quantidade?</label>
+                <input type="text" class="form-control" id="qtd" name="qtd" placeholder="10">
             </div>
-
             <div class="form-group">
-                <label for="title">Quantidade</label>
-                <input type="text" class="form-control" id="celular" name="celular" placeholder="(82)999999999">
+                <label for="title">Descrição</label>
+                <textarea name="description" id="description" class="form-control" placeholder="descreva o produto?"></textarea>
             </div>
-            <input type="submit" class="btn btn-primary" value="Solicitar">
+            <input type="submit" class="btn btn-primary" value="adicionar produto">
         </form>
     </div>
 
