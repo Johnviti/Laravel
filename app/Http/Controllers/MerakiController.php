@@ -14,9 +14,19 @@ class MerakiController extends Controller
     
     public function index(){
 
-        $produtos= Products::all();
+        $search=request('search');
+
+        if($search){
+
+            $produtos= Products::where([['name', 'like', '%'.$search.'%']]
+            )->get();
+
+        }else{
+
+            $produtos= Products::all();
+        }
           
-        return view('welcome',['produtos' => $produtos]);
+        return view('welcome',['produtos' => $produtos, 'search'=>$search]);
 
     }
 
