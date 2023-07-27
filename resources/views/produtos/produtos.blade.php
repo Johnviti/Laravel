@@ -1,8 +1,8 @@
-@extends('layouts.main')
+@extends('layouts.main2')
 
 @section('titulo', 'Produtos')
 
-@section('content')
+@section('main2')
 
     <div id="cadastro-create-container" class="col-md-6 offset-md-3">
         <h1>ADICIONE UM PRODUTO</h1>

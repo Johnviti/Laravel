@@ -18,12 +18,12 @@ use App\Http\Controllers\MerakiController;
 
 Route::get('/', [MerakiController::class,'index']);
 
-Route::get('/clientes-resgistrados', [MerakiController::class,'resgistrados']);
+Route::get('/clientes-resgistrados', [MerakiController::class,'resgistrados'])->middleware('auth');
 Route::get('/cliente/create', [MerakiController::class,'create']);
 route::post('/cliente',[MerakiController::class,'store']);
 
 
-Route::get('/produtos/create', [MerakiController::class,'adicionar']);
+Route::get('/produtos/create', [MerakiController::class,'adicionar'])->middleware('auth');
 Route::post('/produtos',[MerakiController::class,'storeproduct']);
 Route::get('/produtos/{id}', [MerakiController::class,'show']);
 

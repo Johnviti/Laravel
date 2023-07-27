@@ -8,6 +8,8 @@ use App\Models\cliente;
 
 use App\Models\Products;
 
+use App\Models\User;
+
 
 class MerakiController extends Controller
 {
@@ -85,6 +87,8 @@ class MerakiController extends Controller
             $produto->image = $imageName;
         }
         
+        $user = auth()->user();
+        $produto->user_id = $user->id;
 
         $produto->save();
 
@@ -95,7 +99,10 @@ class MerakiController extends Controller
     public function show($id){
 
         $produto= Products::findorFail($id);
-        return view('produtos.show', ['produto'=>$produto] );
+
+        $produtoOwner = user::where('id', $produto->user_id)->first()->toArray();
+
+        return view('produtos.show', ['produto'=>$produto, 'produtoOwner' => $produtoOwner]);
     }
 
 
