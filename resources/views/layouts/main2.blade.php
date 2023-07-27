@@ -25,21 +25,30 @@
                         <img src="/img/logo.jfif" alt="Logo Meraki">
                     </a>
                     <ul class="navbar-nav">
+                        @auth
                         <li class="nav-item">
                             <a href="/" class="nav-link">Loja</a>
                         </li>
-
-                        <li class="nav-item">
-                            <a href="/cliente/create" class="nav-link">Solicitar orçamento</a>
-                        </li>
-
                         <li class="nav-item">
                             <a href="/produtos/create" class="nav-link">Adicionar produtos</a>
                         </li>
-
                         <li class="nav-item">
-                            <a href="/clientes-resgistrados" class="nav-link">Clientes</a>
+                            <a href="/clientes-resgistrados" class="nav-link">Lista de clientes</a>
                         </li>
+                        <li class="nav-item">
+                            <form action="/logout" method="POST">
+                            @csrf
+                            <a href="/logout" class="nav-link" 
+                            onclick="event.preventDefault(); this.closest('form').submit();">
+                            Sair</a>
+                            </form>
+                        </li>
+                        @endauth
+                        @guest
+                        <li class="nav-item">
+                            <a href="/cliente/create" class="nav-link">Solicitar orçamento</a>
+                        </li>
+                        @endguest
                     </ul>
                 </div>
             </nav>

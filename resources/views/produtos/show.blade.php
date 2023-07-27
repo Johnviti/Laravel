@@ -14,6 +14,8 @@
                 <h1>{{$produto->name}}</h1>
                 <p class="produto-categoria"><ion-icon name="document-text-outline"></ion-icon>{{$produto->categoria}}</p>
                 <p class="produtos-qtd"><ion-icon name="star-outline"></ion-icon>{{$produto->qtd}} und</p>
+                <p>Postado por:</p>
+                <p class="produtos-qtd"><ion-icon name="person-circle-outline"></ion-icon> {{$produtoOwner['name']}}</p>
                 <a href="#" class="btn btn-primary" id="produto-submit">Comprar</a>
                 <h3>Especificações:</h3>
                 <ul id="items-list">
