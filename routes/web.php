@@ -28,14 +28,5 @@ Route::post('/produtos',[MerakiController::class,'storeproduct']);
 Route::get('/produtos/{id}', [MerakiController::class,'show']);
 
 
-;
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
+Route::get('/dashboard', [MerakiController::class,'dashboard'])->middleware('auth');

@@ -59,8 +59,8 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function Products(){
-        return $this->hasMany('App\Models\User');
+    public function products(){
+        return $this->hasMany('App\Models\Products');
     }
 
 }

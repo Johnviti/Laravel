@@ -27,6 +27,12 @@
                     <ul class="navbar-nav">
                         @auth
                         <li class="nav-item">
+                            <a href="/" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/dashboard" class="nav-link">Lista de produtos</a>
+                        </li>
+                        <li class="nav-item">
                             <a href="/produtos/create" class="nav-link">Adicionar produtos</a>
                         </li>
                         <li class="nav-item">
@@ -42,6 +48,9 @@
                         </li>
                         @endauth
                         @guest
+                        <li class="nav-item">
+                            <a href="/" class="nav-link">Home</a>
+                        </li>
                         <li class="nav-item">
                             <a href="/cliente/create" class="nav-link">Solicitar orçamento</a>
                         </li>

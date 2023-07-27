@@ -105,6 +105,12 @@ class MerakiController extends Controller
         return view('produtos.show', ['produto'=>$produto, 'produtoOwner' => $produtoOwner]);
     }
 
+    public function dashboard(){
 
-}
+        $user = auth()->user();
+        
+        $produtos= $user->products;
+
+        return view('produtos.dashboard', ['produtos'=> $produtos]);
+}}
 
