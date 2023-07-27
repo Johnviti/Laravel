@@ -24,7 +24,7 @@
     <div id="cards-container" class="row">
      @foreach ($produtos as $produto)
         <div class="card col-md-3">
-            <img src="/img/produtos/{{ $produto->image }}"" alt="{{$produto->name}}">
+            <img src="/img/produtos/{{ $produto->image }}" alt="{{$produto->name}}">
             <div class="card-body">
                 <h5 class="card-title">{{$produto->name}}</h5>
                 <p class="card-qtd">{{$produto->qtd}} und</p>

@@ -149,7 +149,18 @@ header{
 
 
 
+.dashboard-produtos-container form{
+    display: inline-block;
+    
+}
 
+/* edit page */
+
+.img-preview{
+    width: 100px;
+    margin-top: 20px;
+
+}
 
 
 

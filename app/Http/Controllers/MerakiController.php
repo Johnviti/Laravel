@@ -112,5 +112,21 @@ class MerakiController extends Controller
         $produtos= $user->products;
 
         return view('produtos.dashboard', ['produtos'=> $produtos]);
-}}
+}
+
+    public function destroy($id){
+
+        Products::findorFail($id)->delete();
+
+        return redirect('/dashboard')->with('msg', 'Produto excluido com sucesso!');
+    }
+
+    public function edit($id){
+
+        $produto= Products::findorFail($id);
+
+        return view('produtos.edit', ['produto'=>$produto]);
+    }
+
+}
 

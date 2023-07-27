@@ -24,7 +24,14 @@
                 <td scropt="row">{{$loop->index+1}} </td>
                 <td><a href="/produtos/{{$produto->id}}">{{$produto->name}}</a></td>
                 <td>{{$produto->qtd}}</td>
-                <td> <a href="#">Editar</a> <a href="#">Deletar</a> </td>
+                <td> 
+                    <a href="/produtos/edit/{{{$produto->id}}}" class="btn btn-info edit-btn"> Editar <ion-icon name="create-outline"> </a> 
+                    <form action="/produtos/{{$produto->id}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger delete-btn">Deletar<ion-icon name="trash-outline"> </button>
+                    </form>
+                </td>
             </tr>
             
         @endforeach
