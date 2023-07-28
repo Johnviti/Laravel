@@ -16,7 +16,7 @@
                 <p class="produtos-qtd"><ion-icon name="star-outline"></ion-icon>{{$produto->qtd}} und</p>
                 <p>Postado por:</p>
                 <p class="produtos-qtd"><ion-icon name="person-circle-outline"></ion-icon> {{$produtoOwner['name']}}</p>
-                <a href="#" class="btn btn-primary" id="produto-submit">Comprar</a>
+                <a href="/cliente/create/{{$produto->id}}" class="btn btn-primary" id="produto-submit">Comprar</a>
                 <h3>Especificações:</h3>
                 <ul id="items-list">
                     @foreach ($produto->items as $item)

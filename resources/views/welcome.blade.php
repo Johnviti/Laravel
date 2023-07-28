@@ -37,7 +37,12 @@
      @if (count($produtos)==0 && $search)
         <p>Não foi possível encontrar nenhum produto com {{$search}}! <a href="/">Ver todos</a> </p>
     @elseif(count($produtos)==0 )   
+        @auth
+        <p>Não há produtos no momento!, <a href="/produtos/create">Adicione produtos</a></p>    
+        @endauth
+        @guest
         <p>Não há produtos no momento!</p>
+        @endguest
      @endif
 
     </div>

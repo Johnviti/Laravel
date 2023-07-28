@@ -46,7 +46,7 @@
                         @endauth
                         @guest
                         <li class="nav-item">
-                            <a href="/cliente/create" class="nav-link">Solicitar orçamento</a>
+                            <a href="/" class="nav-link">Home</a>
                         </li>
                         @endguest
                     </ul>

@@ -38,7 +38,7 @@
     </tbody>
     </table>
     @else
-        <p>Você ainda não tem nenhum produto cadastrado, <a href="/produtos/create">Adidiconar produtos</a></p>
+        <p>Você ainda não tem nenhum produto cadastrado, <a href="/produtos/create">Adicionar produtos</a></p>
     @endif
     
 </div>

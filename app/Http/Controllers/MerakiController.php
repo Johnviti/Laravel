@@ -37,9 +37,11 @@ class MerakiController extends Controller
         return view('produtos.produtos');
     }
     
-    public function create(){
+    public function create($id){
 
-        return view('produtos.create');
+        $produto= Products::findorFail($id);
+      
+        return view('produtos.create',['produto' => $produto]);
     }
     
     public function resgistrados(){
@@ -128,5 +130,39 @@ class MerakiController extends Controller
         return view('produtos.edit', ['produto'=>$produto]);
     }
 
+    public function update( Request $request){
+
+        $data=$request->all();
+
+        if ($request-> hasfile('image') && $request->file('image')->isValid()) {
+            
+            $requestImage = $request->image;
+            $extension = $requestImage->extension();
+
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+
+            $requestImage->move(public_path('img/produtos'), $imageName);
+
+            $data['image'] = $imageName;
+        }
+
+        Products::findorFail($request->id)->update($data);
+
+        return redirect('/dashboard')->with('msg', 'Produto editado com sucesso!');
+        
+    }
+
+    public function buyProducts($id){
+
+
+            $cliente->produto()->attach($id);
+            
+            $cliente->save();
+    
+            return redirect('/')->with('msg', 'orçamento criado com sucesso!');
+    
+        }
+
 }
+
 

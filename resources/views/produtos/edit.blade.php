@@ -6,7 +6,7 @@
 
     <div id="cadastro-create-container" class="col-md-6 offset-md-3">
         <h1>Editando: {{$produto->name}}</h1>
-        <form action="/produtos/edit" method="POST" enctype="multipart/form-data">
+        <form action="/produtos/update/{{$produto->id}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="form-group">
@@ -48,7 +48,7 @@
                     <input type="checkbox" name="items[]" value="Nacional">Nacional
                 </div>
             </div>
-            <input type="submit" class="btn btn-primary" value="adicionar produto">
+            <input type="submit" class="btn btn-primary" value="Editar Produto">
         </form>
     </div>
 

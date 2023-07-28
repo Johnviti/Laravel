@@ -20,7 +20,11 @@
                 <label for="title">Celular</label>
                 <input type="text" class="form-control" id="celular" name="celular" placeholder="(82)999999999">
             </div>
-            <input type="submit" class="btn btn-primary" value="Enviar">
+            <div class="form-group">
+                <label for="title">Item Adicionado</label>
+                <input type="text" class="form-control" id="item" name="item" value="{{$produto->name}}">
+            </div>
+            <input type="submit" class="btn btn-primary" value="Solicitação de compra">
         </form>
     </div>
 

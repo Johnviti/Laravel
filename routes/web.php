@@ -19,7 +19,7 @@ use App\Http\Controllers\MerakiController;
 Route::get('/', [MerakiController::class,'index']);
 
 Route::get('/clientes-resgistrados', [MerakiController::class,'resgistrados'])->middleware('auth');
-Route::get('/cliente/create', [MerakiController::class,'create']);
+Route::get('/cliente/create/{id}', [MerakiController::class,'create']);
 route::post('/cliente',[MerakiController::class,'store']);
 
 
@@ -29,6 +29,10 @@ Route::post('/produtos',[MerakiController::class,'storeproduct']);
 Route::get('/produtos/{id}', [MerakiController::class,'show']);
 Route::delete('/produtos/{id}', [MerakiController::class,'destroy'])->middleware('auth');
 Route::get('/produtos/edit/{id}', [MerakiController::class,'edit'])->middleware('auth');
+Route::put('/produtos/update/{id}', [MerakiController::class,'update'])->middleware('auth');
+
+
+Route::post('/produtos/buy/{id}', [MerakiController::class,'buyProducts']);
 
 
 

@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class cliente extends Model
 {
     use HasFactory;
+
+
+    public function produto(){
+        return $this->belongsToMany('App\Models\Products');
+    }
+
+
 }
