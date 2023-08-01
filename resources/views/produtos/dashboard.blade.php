@@ -1,11 +1,13 @@
-@extends('layouts.main2')
+@extends('layouts.main')
 
 @section('titulo', 'Dashboard')
 
-@section('main2')
+@section('content')
+
 
 <div class="col-md-10 offset-md-1 dashboard-title-container">
     <h1>Meus produtos</h1>
+    <a href="{{route('testeCarrinhoCompra')}}">Carrinho de compras</a>
 </div>
 <div class="col-md-10 offset-md-1 dashboard-produtos-container">
     @if (count($produtos) > 0)

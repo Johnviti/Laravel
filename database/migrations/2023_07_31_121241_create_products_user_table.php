@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProdutoClienteTable extends Migration
+class CreateProductsUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateProdutoClienteTable extends Migration
      */
     public function up()
     {
-        Schema::create('produto_cliente', function (Blueprint $table) {
-            $table->foreignId('produto_id')->constrained();
-            $table->foreignId('cliente_id')->constrained();
+        Schema::create('products_user', function (Blueprint $table) {
+            $table->foreignId('products_id')->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateProdutoClienteTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('produto_cliente');
+        Schema::dropIfExists('products_user');
     }
 }

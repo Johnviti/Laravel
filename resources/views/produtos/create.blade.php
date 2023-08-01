@@ -21,10 +21,10 @@
                 <input type="text" class="form-control" id="celular" name="celular" placeholder="(82)999999999">
             </div>
             <div class="form-group">
-                <label for="title">Item Adicionado</label>
-                <input type="text" class="form-control" id="item" name="item" value="{{$produto->name}}">
+                <label for="title">Descrição:</label>
+                <textarea name="description" id="description" class="form-control" placeholder="descreva o produto?" ></textarea>
             </div>
-            <input type="submit" class="btn btn-primary" value="Solicitação de compra">
+            <input type="submit" class="btn btn-primary" value="Enviar">
         </form>
     </div>
 

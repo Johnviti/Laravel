@@ -24,8 +24,10 @@
                     <a href="/" class="navbar-brand">
                         <img src="/img/logo.jfif" alt="Logo Meraki">
                     </a>
+                    
                     <ul class="navbar-nav">
                         @auth
+                        @if ($user->id=='1')
                         <li class="nav-item">
                             <a href="/" class="nav-link">Home</a>
                         </li>
@@ -46,10 +48,46 @@
                             Sair</a>
                             </form>
                         </li>
+                        @else
+                        
+                        {{-- <li class="nav-item">
+                            <a href="/dashboard" class="nav-link">Lista de produtos</a>
+                        </li> --}}
+                        <li class="nav-item">
+                            <a href="{{route('testeCarrinhoCompra')}}" class="nav-link"><ion-icon name="cart-outline"></ion-icon>Minhas Compras</a>
+                        </li>
+                        {{-- <li class="nav-item">
+                            <a href="/dashboard" class="nav-link">Lista de produtos</a>
+                        </li>
+                        <li class="nav-item"> --}}
+                        {{-- <li class="nav-item">
+                            <a href="/produtos/create" class="nav-link">Adicionar produtos</a>
+                        </li> --}}
+                        <li class="nav-item">
+                            <a href="/" class="nav-link" id="name" ><ion-icon name="mail-outline"></ion-icon>{{$user->email}}</a>
+                        </li>
+                        <li class="nav-item">
+                            <form action="/logout" method="POST">
+                            @csrf
+                            <a href="/logout" class="nav-link" 
+                            onclick="event.preventDefault(); this.closest('form').submit();">
+                            Sair</a>
+                            </form>
+                        </li>
+                        @endif
                         @endauth
                         @guest
                         <li class="nav-item">
                             <a href="/" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/cliente/create/" class="nav-link">Solicitar orçamento</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/login" class="nav-link">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/register" class="nav-link">Cadastrar</a>
                         </li>
                         @endguest
                     </ul>

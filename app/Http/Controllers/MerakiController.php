@@ -10,14 +10,16 @@ use App\Models\Products;
 
 use App\Models\User;
 
+use App\Models\products_user;
+
 
 class MerakiController extends Controller
 {
     
     public function index(){
-
+        
         $search=request('search');
-
+        $user = auth()->user(); 
         if($search){
 
             $produtos= Products::where([['name', 'like', '%'.$search.'%']]
@@ -28,27 +30,26 @@ class MerakiController extends Controller
             $produtos= Products::all();
         }
           
-        return view('welcome',['produtos' => $produtos, 'search'=>$search]);
+        return view('welcome',['produtos' => $produtos, 'search'=>$search, 'user' => $user]);
 
     }
 
     public function adicionar(){
-
-        return view('produtos.produtos');
+        $user = auth()->user();
+        return view('produtos.produtos',['user' => $user]);
     }
     
-    public function create($id){
-
-        $produto= Products::findorFail($id);
-      
-        return view('produtos.create',['produto' => $produto]);
+    public function create(){
+        $user = auth()->user();
+        return view('produtos.create',['user' => $user]);
     }
     
     public function resgistrados(){
-       
-        $clientes= cliente::all();
         
-        return view('produtos.clientes-registrados', ['clientes' => $clientes]);
+        $user = auth()->user();
+        $clientes= cliente::all();
+        dd($clientes);
+        return view('produtos.clientes-registrados', ['clientes' => $clientes,'user' => $user]);
     }
 
 
@@ -59,6 +60,7 @@ class MerakiController extends Controller
         $cliente->name = $request ->name;
         $cliente->email = $request ->email;
         $cliente->celular = $request ->celular;
+        $cliente->description = $request ->description;
 
         $cliente->save();
 
@@ -100,11 +102,12 @@ class MerakiController extends Controller
 
     public function show($id){
 
+        $user = auth()->user(); 
         $produto= Products::findorFail($id);
 
         $produtoOwner = user::where('id', $produto->user_id)->first()->toArray();
 
-        return view('produtos.show', ['produto'=>$produto, 'produtoOwner' => $produtoOwner]);
+        return view('produtos.show', ['produto'=>$produto, 'produtoOwner' => $produtoOwner,'user' => $user]);
     }
 
     public function dashboard(){
@@ -113,7 +116,7 @@ class MerakiController extends Controller
         
         $produtos= $user->products;
 
-        return view('produtos.dashboard', ['produtos'=> $produtos]);
+        return view('produtos.dashboard', ['produtos'=> $produtos,'user' => $user]);
 }
 
     public function destroy($id){
@@ -126,8 +129,9 @@ class MerakiController extends Controller
     public function edit($id){
 
         $produto= Products::findorFail($id);
+        $user = auth()->user();
 
-        return view('produtos.edit', ['produto'=>$produto]);
+        return view('produtos.edit', ['produto'=>$produto,'user' => $user]);
     }
 
     public function update( Request $request){
@@ -154,15 +158,41 @@ class MerakiController extends Controller
 
     public function buyProducts($id){
 
+            $user = auth()->user();
+            $produto = Products::findOrFail($id);
+            $user->productsBuy()->attach($id);
+            $newqtd= $produto->qtd -1;
 
-            $cliente->produto()->attach($id);
-            
-            $cliente->save();
-    
-            return redirect('/')->with('msg', 'orçamento criado com sucesso!');
+            $produto->qtd = $newqtd;
+
+            $produto->save();
+
+            return redirect('/')->with('msg', 'Produto adicionado no carrinho');
     
         }
+    // protected function updateProduto($produto){
+    //     
+    // }
 
+    public function carrinhoProducts($id){
+        
+        $user = $id;
+        $produtos= products_user::findOrFail();
+        dd($produtos);
+        
+
+        return view('produtos.carrinho', ['produtos'=>$produtos,'user' => $user]);
+    }
+
+    public function testeCarrinhoCompra()
+    {
+        $user = auth()->user(); 
+        $produtos= Products::all();
+        $produtoCarrinho= products_user::all();
+        dd($produtoCarrinho);
+        $carrinho = $produtoCarrinho->product_id;
+        return view('produtos.carrinho',['produtos' => $produtos, 'user' => $user, 'produtoCarinho' => $produtoCarrinho]);
+    }
 }
 
 

@@ -1,8 +1,8 @@
-@extends('layouts.main2')
+@extends('layouts.main')
 
 @section('titulo', 'Meraki.JE')
 
-@section('main2')
+@section('content')
     
 
 <div id="products-container" class="col-md-12">
@@ -12,10 +12,10 @@
      @foreach ($clientes as $cliente)
         <div class="card col-md-3">
             <div class="card-body">
-                <p class="card-date">21/07/2023</p>
                 <h5 class="card-title">{{$cliente->name}}</h5>
                 <h5 class="card-title">{{$cliente->email}}</h5>
-                <a href="#" class="btn btn-primary">Enviar orcamento</a>
+                <h5 class="card-title"><ion-icon name="call-outline"></ion-icon>  {{$cliente->celular}}</h5>
+                <p>{{$cliente->description}}</p>
             </div>
         </div>
         

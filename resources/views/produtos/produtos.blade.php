@@ -1,8 +1,8 @@
-@extends('layouts.main2')
+@extends('layouts.main')
 
 @section('titulo', 'Produtos')
 
-@section('main2')
+@section('content')
 
     <div id="cadastro-create-container" class="col-md-6 offset-md-3">
         <h1>ADICIONE UM PRODUTO</h1>
@@ -29,7 +29,7 @@
             </div>
             <div class="form-group">
                 <label for="title">Descrição</label>
-                <textarea name="description" id="description" class="form-control" placeholder="descreva o produto?"></textarea>
+                <textarea name="description" id="description" class="form-control" placeholder="descreva o produto?">Descrição!</textarea>
             </div>
             <div class="form-group">
                 <label for="title">Adicione as especificações do produto</label>

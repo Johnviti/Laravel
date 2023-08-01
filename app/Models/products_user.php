@@ -5,9 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class cliente extends Model
+class products_user extends Model
 {
     use HasFactory;
 
-    protected $dates = ['date'];
+    protected $table = 'products_user';
+
 }

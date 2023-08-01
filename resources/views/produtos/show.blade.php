@@ -16,7 +16,20 @@
                 <p class="produtos-qtd"><ion-icon name="star-outline"></ion-icon>{{$produto->qtd}} und</p>
                 <p>Postado por:</p>
                 <p class="produtos-qtd"><ion-icon name="person-circle-outline"></ion-icon> {{$produtoOwner['name']}}</p>
-                <a href="/cliente/create/{{$produto->id}}" class="btn btn-primary" id="produto-submit">Comprar</a>
+                <form action="/produtos/buy/{{$produto->id}}" method="POST">
+                    @csrf
+                    <input type="text" hidden value="{{$produto->id}}" name="products_id">
+                    @auth
+                    <input type="text" hidden value="{{$user->id}}" name="user_id">
+                    @endauth
+                    @if ($produto->qtd  == '0')
+                        <p class="btn btn-primary" id="produto-submit">Sem unidades disponiveis</p>
+                    @else
+                        <a href="/produtos/buy/{{$produto->id}}">
+                            <button type="submit"class="btn btn-primary" id="produto-submit">Comprar</button>
+                        </a>
+                    @endif
+                </form>   
                 <h3>Especificações:</h3>
                 <ul id="items-list">
                     @foreach ($produto->items as $item)

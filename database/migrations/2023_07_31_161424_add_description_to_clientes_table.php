@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Cliente extends Migration
+class AddDescriptionToClientesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class Cliente extends Migration
      */
     public function up()
     {
-        Schema::create('clientes', function (Blueprint $table) {
-            $table->id();
-            $table->string('name',50);
-            $table->string('email',55);
-            $table->string('celular',15);
-            $table->timestamps();
+        Schema::table('clientes', function (Blueprint $table) {
+            $table->text('description');
         });
     }
 
@@ -29,6 +25,8 @@ class Cliente extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('clientes');
+        Schema::table('clientes', function (Blueprint $table) {
+            $table->dropColumn('description');
+        });
     }
 }

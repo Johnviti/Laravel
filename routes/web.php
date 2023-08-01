@@ -19,21 +19,29 @@ use App\Http\Controllers\MerakiController;
 Route::get('/', [MerakiController::class,'index']);
 
 Route::get('/clientes-resgistrados', [MerakiController::class,'resgistrados'])->middleware('auth');
-Route::get('/cliente/create/{id}', [MerakiController::class,'create']);
+Route::get('/cliente/create/', [MerakiController::class,'create']);
 route::post('/cliente',[MerakiController::class,'store']);
 
+route::get('/produtos/carrinho', [MerakiController::class, 'testeCarrinhoCompra'])->name('testeCarrinhoCompra');
 
+route::get('/produtos/carrinho/{id}', [MerakiController::class, 'CarrinhoCompra'])->name('CarrinhoCompra');
 
 Route::get('/produtos/create', [MerakiController::class,'adicionar'])->middleware('auth');
 Route::post('/produtos',[MerakiController::class,'storeproduct']);
 Route::get('/produtos/{id}', [MerakiController::class,'show']);
+
+// Deletar dados de produtos selecionados
 Route::delete('/produtos/{id}', [MerakiController::class,'destroy'])->middleware('auth');
+// editar produtos
 Route::get('/produtos/edit/{id}', [MerakiController::class,'edit'])->middleware('auth');
 Route::put('/produtos/update/{id}', [MerakiController::class,'update'])->middleware('auth');
 
 
-Route::post('/produtos/buy/{id}', [MerakiController::class,'buyProducts']);
+// fazer a comprar do produto
+Route::post('/produtos/buy/{id}', [MerakiController::class,'buyProducts'])->middleware('auth')->name('buyProducts');
 
+
+// fazer a comprar do produto
 
 
 

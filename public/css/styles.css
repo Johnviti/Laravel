@@ -52,6 +52,7 @@ header{
 .navbar-dark .navbar-nav .nav-link{
     color: #ffffff;
 }
+
 .nav-link:hover {
     text-decoration: underline;
     color: #ffffff;
@@ -131,7 +132,7 @@ header{
 .card .card-title{
     color: #212121;
     font-size: 20px;
-    font-weight: bold;
+    /* font-weight: bold; */
     margin-bottom: 30px;
 }
 
@@ -239,6 +240,7 @@ margin: 5px;
 
 #info-container #produto-submit{
     margin: 20px 0;
+    width: 200px;
 }
 
 #items-list{

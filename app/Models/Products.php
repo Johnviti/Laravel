@@ -21,8 +21,8 @@ class Products extends Model
         return $this->belongsTo('App\Models\User');
     }
 
-    public function cliente(){
-        return $this->belongsToMany('App\Models\Clientes');
+    public function users(){
+        return $this->belongsToMany('App\Models\User');
     }
 
 
