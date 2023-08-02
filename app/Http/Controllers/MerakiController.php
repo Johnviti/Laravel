@@ -48,7 +48,6 @@ class MerakiController extends Controller
         
         $user = auth()->user();
         $clientes= cliente::all();
-        dd($clientes);
         return view('produtos.clientes-registrados', ['clientes' => $clientes,'user' => $user]);
     }
 
@@ -120,10 +119,13 @@ class MerakiController extends Controller
 }
 
     public function destroy($id){
-
         Products::findorFail($id)->delete();
-
         return redirect('/dashboard')->with('msg', 'Produto excluido com sucesso!');
+    }
+
+    public function destroyCompra($id){
+        products_user::findorFail($id)->delete();
+        return redirect()->back()->with('msg', 'Produto excluido com sucesso!');
     }
 
     public function edit($id){
@@ -188,10 +190,10 @@ class MerakiController extends Controller
     {
         $user = auth()->user(); 
         $produtos= Products::all();
+        $users= User::all();
         $produtoCarrinho= products_user::all();
-        dd($produtoCarrinho);
-        $carrinho = $produtoCarrinho->product_id;
-        return view('produtos.carrinho',['produtos' => $produtos, 'user' => $user, 'produtoCarinho' => $produtoCarrinho]);
+        
+        return view('produtos.carrinho',['produtos' => $produtos, 'fornecedor' => $users, 'user' => $user, 'produtoCarrinho' => $produtoCarrinho]);
     }
 }
 

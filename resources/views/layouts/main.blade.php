@@ -50,21 +50,11 @@
                         </li>
                         @else
                         
-                        {{-- <li class="nav-item">
-                            <a href="/dashboard" class="nav-link">Lista de produtos</a>
-                        </li> --}}
                         <li class="nav-item">
                             <a href="{{route('testeCarrinhoCompra')}}" class="nav-link"><ion-icon name="cart-outline"></ion-icon>Minhas Compras</a>
                         </li>
-                        {{-- <li class="nav-item">
-                            <a href="/dashboard" class="nav-link">Lista de produtos</a>
-                        </li>
-                        <li class="nav-item"> --}}
-                        {{-- <li class="nav-item">
-                            <a href="/produtos/create" class="nav-link">Adicionar produtos</a>
-                        </li> --}}
                         <li class="nav-item">
-                            <a href="/" class="nav-link" id="name" ><ion-icon name="mail-outline"></ion-icon>{{$user->email}}</a>
+                            <a href="/" class="nav-link" id="name" ><ion-icon class="icon" name="mail-outline"></ion-icon>{{$user->email}}</a>
                         </li>
                         <li class="nav-item">
                             <form action="/logout" method="POST">

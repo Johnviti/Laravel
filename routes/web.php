@@ -39,7 +39,8 @@ Route::put('/produtos/update/{id}', [MerakiController::class,'update'])->middlew
 
 // fazer a comprar do produto
 Route::post('/produtos/buy/{id}', [MerakiController::class,'buyProducts'])->middleware('auth')->name('buyProducts');
-
+// Deletar dados de produtos selecionados
+Route::delete('/compra/{id}', [MerakiController::class,'destroyCompra'])->middleware('auth');
 
 // fazer a comprar do produto
 

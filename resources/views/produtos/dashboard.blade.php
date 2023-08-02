@@ -17,7 +17,7 @@
                 <th scope='col'>#</th>
                 <th scope='col'>Nome</th>
                 <th scope='col'>Qtd</th>
-                <th scope='col'>Dono</th>
+                <th scope='col'>Opções</th>
             </tr>
         </thead> 
     <tbody>

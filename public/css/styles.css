@@ -52,6 +52,9 @@ header{
 .navbar-dark .navbar-nav .nav-link{
     color: #ffffff;
 }
+.icon{
+align-items: center;
+}
 
 .nav-link:hover {
     text-decoration: underline;
