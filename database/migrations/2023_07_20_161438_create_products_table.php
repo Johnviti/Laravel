@@ -19,6 +19,8 @@ class CreateProductsTable extends Migration
             $table->integer('qtd');
             $table->text('description');
             $table->string('categoria');
+            $table->string('image');
+            $table->json('items');
             $table->timestamps();
         });
     }

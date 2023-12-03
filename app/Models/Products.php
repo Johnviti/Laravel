@@ -12,4 +12,8 @@ class Products extends Model
     protected $casts=[
         'items' => 'array'
     ];
+    protected $fillable = [
+        'name', 'qtd', 'description', 'categoria','image','items'
+    ];
+    
 }
