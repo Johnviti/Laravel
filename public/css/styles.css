@@ -21,6 +21,7 @@ header{
 
 .row{
     margin: 0;
+    gap: 10px;
 }
 
 .container-fluid{
