@@ -17,7 +17,7 @@ class ProductsFactory extends Factory
             'description' => $this->faker->paragraph,
             'categoria' => $this->faker->word,
             'image' => $this->faker->imageUrl(),
-            'items' => json_encode(['item1', 'item2', 'item3']),
+            'items' => $this->faker->words(3),
         ];
     }
 }
